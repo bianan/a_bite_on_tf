@@ -56,8 +56,10 @@ with tf.Session() as sess:
 
     # ... train ...
     for i in range(2000):
+        
         #  ... by sampling some input data (fetching) ...
         x_input, y_input = sess.run([x_inputs_data, y_inputs_data])
+        
         # ... and feeding it to our model
         _, loss = sess.run([train_op, loss_op], feed_dict={
             input: x_input,
