@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<!-- saved from url=(0083)https://blog.metaflow.fr/media/f6f7305630e64cdf9d693acbc331e970?postId=c4c94d5d7125 -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><title>medium-tfsaveload-1 – Medium</title><meta name="description" content="medium-tfsaveload-1"><meta name="twitter:widgets:csp" content="on"><meta name="robots" content="noindex"><!--<base target="_blank">--><base href="." target="_blank"><style>body {text-rendering: optimizeLegibility; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; font-family: "ff-tisa-web-pro", Georgia, Cambria, "Times New Roman", Times, serif; font-weight: 400; color: #333332; font-size: 18px; line-height: 1.4; margin: 0; background-color: white; overflow: hidden;}iframe {max-width: 100%;}</style></head><body><style>.gist .gist-file { margin-bottom: 0 !important; }.gist { text-rendering: auto; }</style><script src="./e4250fc5a5f42419f39c16aed5178fd3.js" charset="utf-8"></script><link rel="stylesheet" href="./gist-embed-87673c31a5b37b5e6556b63e1081ebbc.css"><div id="gist80813741" class="gist">
+    <div class="gist-file">
+      <div class="gist-data">
+        <div class="js-gist-file-update-container js-task-list-container file-box">
+  <div id="file-medium-tfsaveload-1-py" class="file">
+    
+
+  <div itemprop="text" class="blob-wrapper data type-python">
+      <table class="highlight tab-size js-file-line-container" data-tab-size="8">
+      <tbody><tr>
+        <td id="file-medium-tfsaveload-1-py-L1" class="blob-num js-line-number" data-line-number="1"></td>
+        <td id="file-medium-tfsaveload-1-py-LC1" class="blob-code blob-code-inner js-file-line"><span class="pl-k">import</span> tensorflow <span class="pl-k">as</span> tf</td>
+      </tr>
+      <tr>
+        <td id="file-medium-tfsaveload-1-py-L2" class="blob-num js-line-number" data-line-number="2"></td>
+        <td id="file-medium-tfsaveload-1-py-LC2" class="blob-code blob-code-inner js-file-line">
+</td>
+      </tr>
+      <tr>
+        <td id="file-medium-tfsaveload-1-py-L3" class="blob-num js-line-number" data-line-number="3"></td>
+        <td id="file-medium-tfsaveload-1-py-LC3" class="blob-code blob-code-inner js-file-line">g <span class="pl-k">=</span> tf.Graph()</td>
+      </tr>
+      <tr>
+        <td id="file-medium-tfsaveload-1-py-L4" class="blob-num js-line-number" data-line-number="4"></td>
+        <td id="file-medium-tfsaveload-1-py-LC4" class="blob-code blob-code-inner js-file-line"><span class="pl-k">with</span> g.as_default():</td>
+      </tr>
+      <tr>
+        <td id="file-medium-tfsaveload-1-py-L5" class="blob-num js-line-number" data-line-number="5"></td>
+        <td id="file-medium-tfsaveload-1-py-LC5" class="blob-code blob-code-inner js-file-line">    v1 <span class="pl-k">=</span> tf.Variable(<span class="pl-c1">5</span>., <span class="pl-v">dtype</span><span class="pl-k">=</span>tf.float32)</td>
+      </tr>
+      <tr>
+        <td id="file-medium-tfsaveload-1-py-L6" class="blob-num js-line-number" data-line-number="6"></td>
+        <td id="file-medium-tfsaveload-1-py-LC6" class="blob-code blob-code-inner js-file-line"><span class="pl-c1">print</span>(v1.graph <span class="pl-k">==</span> g)</td>
+      </tr>
+      <tr>
+        <td id="file-medium-tfsaveload-1-py-L7" class="blob-num js-line-number" data-line-number="7"></td>
+        <td id="file-medium-tfsaveload-1-py-LC7" class="blob-code blob-code-inner js-file-line"><span class="pl-c"><span class="pl-c">#</span> -&gt; True</span></td>
+      </tr>
+      <tr>
+        <td id="file-medium-tfsaveload-1-py-L8" class="blob-num js-line-number" data-line-number="8"></td>
+        <td id="file-medium-tfsaveload-1-py-LC8" class="blob-code blob-code-inner js-file-line"><span class="pl-c1">print</span>(v1.graph <span class="pl-k">==</span> tf.get_default_graph())</td>
+      </tr>
+      <tr>
+        <td id="file-medium-tfsaveload-1-py-L9" class="blob-num js-line-number" data-line-number="9"></td>
+        <td id="file-medium-tfsaveload-1-py-LC9" class="blob-code blob-code-inner js-file-line"><span class="pl-c"><span class="pl-c">#</span> -&gt; False</span></td>
+      </tr>
+      <tr>
+        <td id="file-medium-tfsaveload-1-py-L10" class="blob-num js-line-number" data-line-number="10"></td>
+        <td id="file-medium-tfsaveload-1-py-LC10" class="blob-code blob-code-inner js-file-line">
+</td>
+      </tr>
+      <tr>
+        <td id="file-medium-tfsaveload-1-py-L11" class="blob-num js-line-number" data-line-number="11"></td>
+        <td id="file-medium-tfsaveload-1-py-LC11" class="blob-code blob-code-inner js-file-line"><span class="pl-c"><span class="pl-c">#</span> The saver does not care in which part of the code it is constructed when given a list of variables</span></td>
+      </tr>
+      <tr>
+        <td id="file-medium-tfsaveload-1-py-L12" class="blob-num js-line-number" data-line-number="12"></td>
+        <td id="file-medium-tfsaveload-1-py-LC12" class="blob-code blob-code-inner js-file-line">saver <span class="pl-k">=</span> tf.train.Saver([v1])</td>
+      </tr>
+      <tr>
+        <td id="file-medium-tfsaveload-1-py-L13" class="blob-num js-line-number" data-line-number="13"></td>
+        <td id="file-medium-tfsaveload-1-py-LC13" class="blob-code blob-code-inner js-file-line">
+</td>
+      </tr>
+      <tr>
+        <td id="file-medium-tfsaveload-1-py-L14" class="blob-num js-line-number" data-line-number="14"></td>
+        <td id="file-medium-tfsaveload-1-py-LC14" class="blob-code blob-code-inner js-file-line"><span class="pl-k">with</span> tf.Session() <span class="pl-k">as</span> sess: </td>
+      </tr>
+      <tr>
+        <td id="file-medium-tfsaveload-1-py-L15" class="blob-num js-line-number" data-line-number="15"></td>
+        <td id="file-medium-tfsaveload-1-py-LC15" class="blob-code blob-code-inner js-file-line">    <span class="pl-c"><span class="pl-c">#</span> The session handles the default graph which is NOT "g"</span></td>
+      </tr>
+      <tr>
+        <td id="file-medium-tfsaveload-1-py-L16" class="blob-num js-line-number" data-line-number="16"></td>
+        <td id="file-medium-tfsaveload-1-py-LC16" class="blob-code blob-code-inner js-file-line">    sess.run(tf.global_variables_initializer())</td>
+      </tr>
+      <tr>
+        <td id="file-medium-tfsaveload-1-py-L17" class="blob-num js-line-number" data-line-number="17"></td>
+        <td id="file-medium-tfsaveload-1-py-LC17" class="blob-code blob-code-inner js-file-line">
+</td>
+      </tr>
+      <tr>
+        <td id="file-medium-tfsaveload-1-py-L18" class="blob-num js-line-number" data-line-number="18"></td>
+        <td id="file-medium-tfsaveload-1-py-LC18" class="blob-code blob-code-inner js-file-line">    <span class="pl-c"><span class="pl-c">#</span> This fails because "v1" is not in the default graph</span></td>
+      </tr>
+      <tr>
+        <td id="file-medium-tfsaveload-1-py-L19" class="blob-num js-line-number" data-line-number="19"></td>
+        <td id="file-medium-tfsaveload-1-py-LC19" class="blob-code blob-code-inner js-file-line">    saver.save(sess, <span class="pl-s"><span class="pl-pds">'</span>test<span class="pl-pds">'</span></span>)</td>
+      </tr>
+      <tr>
+        <td id="file-medium-tfsaveload-1-py-L20" class="blob-num js-line-number" data-line-number="20"></td>
+        <td id="file-medium-tfsaveload-1-py-LC20" class="blob-code blob-code-inner js-file-line">
+</td>
+      </tr>
+</tbody></table>
+
+
+  </div>
+
+  </div>
+</div>
+
+      </div>
+      <div class="gist-meta">
+        <a href="https://gist.github.com/morgangiraud/e4250fc5a5f42419f39c16aed5178fd3/raw/75b26f39f4e7d5285978083293a2a975b7fb66d0/medium-tfsaveload-1.py" style="float:right">view raw</a>
+        <a href="https://gist.github.com/morgangiraud/e4250fc5a5f42419f39c16aed5178fd3#file-medium-tfsaveload-1-py">medium-tfsaveload-1.py</a>
+        hosted with ❤ by <a href="https://github.com/">GitHub</a>
+      </div>
+    </div>
+</div>
+<script>var height = -1; var delayMs = 200;function notifyResize(height) {height = height ? height : document.documentElement.offsetHeight; var resized = false; if (window.donkey && donkey.resize) {donkey.resize(height); resized = true;}if (parent && parent._resizeIframe) {var obj = {iframe: window.frameElement, height: height}; parent._resizeIframe(obj); resized = true;}if (window.location && window.location.hash === "#amp=1" && window.parent && window.parent.postMessage) {window.parent.postMessage({sentinel: "amp", type: "embed-size", height: height}, "*");}if (window.webkit && window.webkit.messageHandlers && window.webkit.messageHandlers.resize) {window.webkit.messageHandlers.resize.postMessage(height); resized = true;}return resized;}function maybeResize() {if (document.documentElement.offsetHeight != height && notifyResize()) {height = document.documentElement.offsetHeight;}delayMs = Math.min(delayMs * 2, 1000000); setTimeout(maybeResize, delayMs);}maybeResize();</script></body></html>
